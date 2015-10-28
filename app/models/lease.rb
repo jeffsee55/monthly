@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: leases
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  unit_id    :integer
+#
+
 class Lease < ActiveRecord::Base
   has_many :subscriptions
   belongs_to :unit

@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: units
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :string
+#  term        :integer
+#  interval    :string
+#  start_date  :datetime
+#  due_day     :integer
+#  property_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  model_id    :integer
+#
+
 class Unit < ActiveRecord::Base
   has_many :leases
   belongs_to :model
