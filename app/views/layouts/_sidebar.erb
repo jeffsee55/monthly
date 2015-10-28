@@ -1,0 +1,37 @@
+<%= content_for :sidebar do %>
+  <h1 class="sidebar-header"><%= @resource %></h1>
+  <div class="section">
+    <h4>Attributes</h4>
+    <ul class="list-group">
+      <% @resource.new.attributes.map{ |k, v| k }.each do |attribute| %>
+        <li class="list-group-item"><%= attribute %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% if @resource.method_defined? :state %>
+    <div class="section">
+      <h4>States</h4>
+      <ul class="list-group">
+        <% @resource.state_machine.states.map(&:name).each do |state| %>
+          <li class="list-group-item"><%= state %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="section">
+    <h4>Associations</h4>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Has Many</strong></li>
+      <% @resource.reflect_on_all_associations(:has_many).map(&:name).each do |association| %>
+        <li class="list-group-item"><a href="/<%= association.to_s.pluralize %>/class_details"><%= association %></a></li>
+      <% end %>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Belongs To</strong></li>
+      <% @resource.reflect_on_all_associations(:belongs_to).map(&:name).each do |association| %>
+        <li class="list-group-item"><a href="/<%= association.to_s.pluralize %>/class_details"><%= association %></a></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+

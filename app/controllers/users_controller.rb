@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
-  def show
+  def class_details
+    @resource = User
   end
 end

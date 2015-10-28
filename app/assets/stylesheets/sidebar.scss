@@ -4,6 +4,8 @@
   bottom: 0;
   width: 220px;
   background: #EA8888;
+  overflow: scroll;
+
   h1, h2, h3, h4, h5, h6, p {
     color: white;
   }
@@ -41,6 +43,10 @@
     padding-bottom: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
+
+    h4 {
+      padding: 0.2rem 1.25rem;
+    }
     
     .list-group-item {
       background-color: transparent;
